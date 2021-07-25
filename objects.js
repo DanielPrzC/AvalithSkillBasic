@@ -1,11 +1,11 @@
 const originalA = {
-    nombre: 'Sergio',
-    edad: 28,
-    preferidos: ['Pizza', 'Hamburguesa'],
-    madre: {
-        nombre: 'Sandra',
-        edad: 54,
-    },
+  nombre: "Sergio",
+  edad: 28,
+  preferidos: ["Pizza", "Hamburguesa"],
+  madre: {
+    nombre: "Sandra",
+    edad: 54,
+  },
 };
 const originalB = '{"nombre":"Damian","edad":26}';
 // -------
@@ -16,17 +16,30 @@ let existeClaveMadreB = null;
 let nombreDelMasJoven = null;
 let clavesDelObjeto = [];
 
-/*
-    A partir de los objetos originales, obtener los siguientes resultados:
-    - edadMadre: Edad de la madre
-    - objetoParseado: Objeto "originalB" parseado a objeto
-    - existeClaveMadreA: Si existe la clave madre en el objeto 'originalA'
-    - existeClaveMadreB: Si existe la clave madre en el objeto 'originalB'
-    - nombreDelMasJoven: Nombre de la persona mas joven
-    - clavesDelObjeto: Que claves contiene el objeto 'originalA'
+// Answers ---------------------------------------------------- //
 
-    Reemplazar este comentario con su codigo.
- */
+/* Edad de la madre */
+edadMadre = originalA.madre.edad;
+
+/* Objeto "originalB" parseado a objeto */
+objetoParseado = JSON.parse(originalB);
+
+/* Si existe la clave madre en el objeto 'originalA' */
+existeClaveMadreA = originalA.hasOwnProperty("madre");
+
+/* Si existe la clave madre en el objeto 'originalB' */
+existeClaveMadreB = objetoParseado.hasOwnProperty("madre");
+
+/* Nombre de la persona mas joven */
+nombreDelMasJoven =
+  originalA.edad > objetoParseado.edad
+    ? objetoParseado.nombre
+    : originalA.nombre;
+
+/* Que claves contiene el objeto 'originalA' */
+clavesDelObjeto = Object.keys(originalA);
+
+// ------------------------------------------------------------ //
 
 console.log(edadMadre);
 console.log(objetoParseado);
